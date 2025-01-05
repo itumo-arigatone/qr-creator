@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm run dev"
+    environment:
+      - NODE_ENV=development
