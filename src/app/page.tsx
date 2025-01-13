@@ -1,7 +1,8 @@
 "use client";
 
 // import Image from "next/image";
-import styles from "./page.module.css";
+import Header from "@/app/_components/Header";
+import styles from "@/app/styles/page.module.css";
 import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
 
@@ -54,7 +55,7 @@ export default function Home() {
   };
   return (
     <div className={styles.page}>
-      <header className={styles.header}>ヘッダーも共通のつくる</header>
+      <Header />
       <main className={styles.main}>
         <div className="qr-code-area">
           <div>
