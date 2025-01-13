@@ -8,7 +8,7 @@ import QRCodeStyling from "qr-code-styling";
 const qrCode = new QRCodeStyling({
   width: 300,
   height: 300,
-  image: "/next.svg",
+  image: "/itsumoarigatone.png",
   dotsOptions: {
     color: "#000000",
     type: "rounded",
@@ -20,8 +20,8 @@ const qrCode = new QRCodeStyling({
 });
 
 export default function Home() {
-  const [url, setUrl] = useState("https://www.itsumoarigatone.com/");
-  const [fileExt, setFileExt] = useState("png");
+  const [url, setUrl] = useState<string>("https://www.itsumoarigatone.com/");
+  const [fileExt, setFileExt] = useState<any>("png"); // 型どうすればいいのかわからない
   const ref = useRef(null);
 
   useEffect(() => {
@@ -38,12 +38,12 @@ export default function Home() {
     });
   }, [url]);
 
-  const onUrlChange = (event) => {
+  const onUrlChange = (event: any) => {
     event.preventDefault();
     setUrl(event.target.value);
   };
 
-  const onExtensionChange = (event) => {
+  const onExtensionChange = (event: any) => {
     setFileExt(event.target.value);
   };
 
