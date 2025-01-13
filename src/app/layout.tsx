@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "シンプルQRコード作成ツール",
+  title: "シンプルQRコード作成サイト",
   description:
-    "シンプルなQRコード作成ツールです。画像の設定や色の変更など簡単にカスタマイズ可能！",
+    "シンプルなQRコード作成ツールです。画像の設定や色の変更など簡単にカスタマイズ可能！URLを入力するとQRコードが生成されます。色や中心に画像を設定する場合はページ下部のQRコードのカスタマイズから設定してください。",
 };
 
 export default function RootLayout({

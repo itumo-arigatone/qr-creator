@@ -58,6 +58,13 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <div className="qr-code-area">
+          <h1>無料でQRコードを作成</h1>
+          <div>
+            <p>URLを入力するとQRコードが生成されます。</p>
+            <p>
+              色や中心に画像を設定する場合はページ下部のQRコードのカスタマイズから設定してください。
+            </p>
+          </div>
           <div>
             <input value={url} onChange={onUrlChange} />
             <select onChange={onExtensionChange} value={fileExt}>
@@ -65,9 +72,16 @@ export default function Home() {
               <option value="jpeg">JPEG</option>
               <option value="webp">WEBP</option>
             </select>
-            <button onClick={onDownloadClick}>Download</button>
           </div>
-          <div className="preview" ref={ref} />
+          <div className={styles.preview} ref={ref} />
+          <button onClick={onDownloadClick}>Download</button>
+
+          {/* <div>広告のバナー挿入</div> */}
+
+          <div>
+            <h2>QRコードのカスタマイズ</h2>
+            <div>{/* <div>詳細設定</div> */}</div>
+          </div>
         </div>
       </main>
       <footer className={styles.footer}>フッターも共通のつくる</footer>
