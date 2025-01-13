@@ -1,4 +1,31 @@
 .header {
   background: var(--sub);
   width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--accent);
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logoImage {
+  object-fit: contain;
+}
+
+.created {
+  font-size: 12px;
+  text-align: right;
+}
+
+.links {
+  overflow: hidden;
+  padding: 16px;
 }

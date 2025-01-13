@@ -10,17 +10,24 @@ export default function Header() {
         <Image
           src="/itsumoarigatone.png"
           alt="ロゴアイコン"
+          className={styles.logoImage}
           width={70}
           height={70}
         />
         <div>
           QRコードジェネレータ
-          <div>created by Itsumoarigatone</div>
+          <div className={styles.created}>created by Itsumoarigatone</div>
         </div>
       </div>
-      <a target="_blank" href="https://www.itsumoarigatone.com/">
-        製作者ブログ
-      </a>
+      <div className={styles.links}>
+        <a
+          className="link"
+          target="_blank"
+          href="https://www.itsumoarigatone.com/blogs/"
+        >
+          製作者ブログ
+        </a>
+      </div>
     </header>
   );
 }
