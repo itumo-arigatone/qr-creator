@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
 import styles from "@/app/styles/qr_creator.module.css";
-import boxs from "@/app/styles/selectbox.module.css";
+import "@/app/styles/selectbox.css";
 
 const qrCode = new QRCodeStyling({
   width: 300,
@@ -43,14 +43,17 @@ const QRCreator = () => {
     setUrl(event.target.value);
   };
 
-  const onExtensionChange = (event: any) => {
-    setFileExt(event.target.value);
-  };
-
   const onDownloadClick = () => {
     qrCode.download({
       extension: fileExt,
     });
+  };
+
+  const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
+
+  const handleClick = (index: number, value: string) => {
+    setFileExt(value);
+    setActiveIndex(index); // インデックスを更新
   };
 
   return (
@@ -61,22 +64,105 @@ const QRCreator = () => {
       <div className={styles.preview} ref={ref} />
 
       <div className={styles.download_area}>
-        <div className={boxs.container}>
-          <select
-            onChange={onExtensionChange}
-            value={fileExt}
-            className={boxs.select}
-          >
-            <option value="png" className={boxs.option}>
-              PNG
-            </option>
-            <option value="jpeg" className={boxs.option}>
-              JPEG
-            </option>
-            <option value="webp" className={boxs.option}>
-              WEBP
-            </option>
-          </select>
+        <div>
+          <svg className="filter" version="1.1">
+            <defs>
+              <filter id="gooeyness">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="8"
+                  result="blur"
+                />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                  result="gooey"
+                />
+                <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
+              </filter>
+            </defs>
+          </svg>
+          <div className="radios-boxes">
+            <div className="radios">
+              <input
+                type="radio"
+                name="radio"
+                id="radio1"
+                className={`radio ${activeIndex === 0 ? "active" : ""}`}
+                onClick={(event: React.MouseEvent<HTMLInputElement>) =>
+                  handleClick(0, event.currentTarget.value)
+                }
+                value="png"
+              />
+              <input
+                type="radio"
+                name="radio"
+                id="radio2"
+                className={`radio ${activeIndex === 1 ? "active" : ""}`}
+                onClick={(event: React.MouseEvent<HTMLInputElement>) =>
+                  handleClick(1, event.currentTarget.value)
+                }
+                value="jpeg"
+              />
+              <input
+                type="radio"
+                name="radio"
+                id="radio3"
+                className={`radio ${activeIndex === 2 ? "active" : ""}`}
+                onClick={(event: React.MouseEvent<HTMLInputElement>) =>
+                  handleClick(2, event.currentTarget.value)
+                }
+                value="webp"
+              />
+              <div
+                className={`ball ${
+                  activeIndex !== null ? `pos${activeIndex}` : ""
+                }`}
+              ></div>
+            </div>
+            <div className="labels">
+              <label
+                htmlFor="radio1"
+                data-value="png"
+                className={`label ${activeIndex === 0 ? "active" : ""}`}
+                onClick={(event: React.MouseEvent<HTMLLabelElement>) =>
+                  handleClick(
+                    0,
+                    event.currentTarget.getAttribute("data-value") || ""
+                  )
+                }
+              >
+                png
+              </label>
+              <label
+                htmlFor="radio2"
+                data-value="jpeg"
+                className={`label ${activeIndex === 1 ? "active" : ""}`}
+                onClick={(event: React.MouseEvent<HTMLLabelElement>) =>
+                  handleClick(
+                    1,
+                    event.currentTarget.getAttribute("data-value") || ""
+                  )
+                }
+              >
+                jpeg
+              </label>
+              <label
+                htmlFor="radio3"
+                data-value="webp"
+                className={`label ${activeIndex === 2 ? "active" : ""}`}
+                onClick={(event: React.MouseEvent<HTMLLabelElement>) =>
+                  handleClick(
+                    2,
+                    event.currentTarget.getAttribute("data-value") || ""
+                  )
+                }
+              >
+                webp
+              </label>
+            </div>
+          </div>
         </div>
         <div>
           <button onClick={onDownloadClick}>Download</button>
