@@ -19,9 +19,9 @@ export default function Header() {
           <div className={styles.created}>created by Itsumoarigatone</div>
         </div>
       </div>
-      <div className={styles.links}>
+      <div className={`${styles.links}`}>
         <a
-          className="link"
+          className={styles.button}
           target="_blank"
           href="https://www.itsumoarigatone.com/blog/"
         >
