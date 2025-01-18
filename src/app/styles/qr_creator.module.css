@@ -70,6 +70,14 @@
   gap: 10px;
 }
 
+.section {
+  margin-top: 40px;
+}
+
+.h2_title {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .textbox {
     width: 270px;

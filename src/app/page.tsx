@@ -19,15 +19,6 @@ export default function Home() {
             </div>
           </section>
           <QRCreator />
-
-          {/* <div>広告のバナー挿入</div> */}
-
-          <section className={styles.section}>
-            <h2 className={styles.h2_title}>
-              QRコードのカスタマイズ comming soon...
-            </h2>
-            <div>{/* <div>詳細設定</div> */}</div>
-          </section>
         </div>
       </main>
       <Footer />
