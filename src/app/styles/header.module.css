@@ -57,6 +57,11 @@
   }
   .logo {
     font-size: 20px;
+    padding-bottom: 0;
+  }
+
+  .links {
+    padding: 24px;
   }
 
   .link {
