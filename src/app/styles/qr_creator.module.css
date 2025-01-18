@@ -27,9 +27,9 @@
 }
 
 .textbox {
-  color: var(--base);
+  color: var(--accent);
   opacity: 0.7;
-  border-radius: 10px;
+  border-radius: 26px;
   padding: 20px;
   text-align: center;
   width: 400px;
@@ -38,10 +38,17 @@
   -moz-transition: all 0.3s;
   font-size: 16px;
   outline: none;
-  background-color: var(--accent);
+  background-color: var(--base);
+  border: none;
+
+  box-shadow: 0 15px 25px -4px #00000080, inset 0 -3px 4px -1px #0003,
+    0 -10px 15px -1px #fff, inset 0 3px 4px -1px #fafafa, inset 0 0 5px 1px #fff,
+    inset 0 20px 30px #e0e0e0;
 }
 
 .textbox:focus {
+  box-shadow: 0 15px 25px -4px #0006, inset 0 -8px 30px 1px #fff,
+    0 -10px 15px -1px #fff, inset 0 8px 25px #0008, inset 0 0 10px 1px #fff9;
   width: 500px;
   outline: none;
 }
