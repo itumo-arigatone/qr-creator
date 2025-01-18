@@ -42,8 +42,8 @@
   border-radius: 30px;
   background: var(--sub);
   display: block;
-  height: 30px;
   width: 170px;
+  padding: 8px;
 }
 
 .button:active {
