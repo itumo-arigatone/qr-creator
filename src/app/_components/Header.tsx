@@ -23,7 +23,7 @@ export default function Header() {
         <a
           className="link"
           target="_blank"
-          href="https://www.itsumoarigatone.com/blogs/"
+          href="https://www.itsumoarigatone.com/blog/"
         >
           製作者ブログ
         </a>
