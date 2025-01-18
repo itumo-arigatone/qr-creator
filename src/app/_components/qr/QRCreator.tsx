@@ -45,9 +45,9 @@ const QRCreator = () => {
   };
 
   const onDownloadClick = () => {
-    // qrCode.download({
-    //   extension: fileExt,
-    // });
+    qrCode.download({
+      extension: fileExt,
+    });
   };
 
   const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
