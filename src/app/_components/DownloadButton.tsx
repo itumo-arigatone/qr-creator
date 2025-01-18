@@ -1,6 +1,10 @@
 import "@/app/styles/download.css";
 
-const DownloadButton = ({ onDownloadClick }: any) => {
+const DownloadButton = ({
+  onDownloadClick,
+}: {
+  onDownloadClick: () => void;
+}) => {
   return (
     <div className="toggle">
       <button className="button" onClick={onDownloadClick}>

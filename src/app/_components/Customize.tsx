@@ -1,6 +1,7 @@
 import styles from "@/app/styles/customize.module.css";
+import QRCodeStyling from "qr-code-styling";
 
-const Customize = ({ qrCode }: any) => {
+const Customize = ({ qrCode }: { qrCode: QRCodeStyling }) => {
   const handleClearIcon = () => {
     qrCode.update({
       image: "",

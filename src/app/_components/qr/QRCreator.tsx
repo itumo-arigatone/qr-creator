@@ -7,6 +7,8 @@ import QRCodeStyling from "qr-code-styling";
 import styles from "@/app/styles/qr_creator.module.css";
 import "@/app/styles/selectbox.css";
 
+type FileExtension = "png" | "jpeg" | "webp" | "svg";
+
 const qrCode = new QRCodeStyling({
   width: 300,
   height: 300,
@@ -23,7 +25,7 @@ const qrCode = new QRCodeStyling({
 
 const QRCreator = () => {
   const [url, setUrl] = useState<string>("https://www.itsumoarigatone.com/");
-  const [fileExt, setFileExt] = useState<any>("png"); // 型どうすればいいのかわからない
+  const [fileExt, setFileExt] = useState<FileExtension>("png"); // 型どうすればいいのかわからない
   const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
   const ref = useRef(null);
 
@@ -41,7 +43,7 @@ const QRCreator = () => {
     });
   }, [url]);
 
-  const onUrlChange = (event: any) => {
+  const onUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setUrl(event.target.value);
   };
@@ -53,8 +55,15 @@ const QRCreator = () => {
   };
 
   const handleClick = (index: number, value: string) => {
-    setFileExt(value);
-    setActiveIndex(index); // インデックスを更新
+    if (
+      value === "png" ||
+      value === "jpeg" ||
+      value === "webp" ||
+      value === "svg"
+    ) {
+      setFileExt(value);
+      setActiveIndex(index); // インデックスを更新
+    }
   };
 
   const handleClear = () => {
