@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
+import DownloadButton from "@/app/_components/DownloadButton";
 import styles from "@/app/styles/qr_creator.module.css";
 import "@/app/styles/selectbox.css";
 
@@ -44,9 +45,9 @@ const QRCreator = () => {
   };
 
   const onDownloadClick = () => {
-    qrCode.download({
-      extension: fileExt,
-    });
+    // qrCode.download({
+    //   extension: fileExt,
+    // });
   };
 
   const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
@@ -165,7 +166,7 @@ const QRCreator = () => {
           </div>
         </div>
         <div>
-          <button onClick={onDownloadClick}>Download</button>
+          <DownloadButton onDownloadClick={onDownloadClick} />
         </div>
       </div>
     </section>
