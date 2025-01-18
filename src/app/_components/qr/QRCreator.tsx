@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import QRCodeStyling from "qr-code-styling";
 import styles from "@/app/styles/qr_creator.module.css";
+import boxs from "@/app/styles/selectbox.module.css";
 
 const qrCode = new QRCodeStyling({
   width: 300,
@@ -53,18 +54,35 @@ const QRCreator = () => {
   };
 
   return (
-    <div>
-      <div>
-        <input value={url} onChange={onUrlChange} />
-        <select onChange={onExtensionChange} value={fileExt}>
-          <option value="png">PNG</option>
-          <option value="jpeg">JPEG</option>
-          <option value="webp">WEBP</option>
-        </select>
+    <section className={styles.qr_creator}>
+      <div className={styles.input_wrapper}>
+        <input value={url} onChange={onUrlChange} className={styles.textbox} />
       </div>
       <div className={styles.preview} ref={ref} />
-      <button onClick={onDownloadClick}>Download</button>
-    </div>
+
+      <div className={styles.download_area}>
+        <div className={boxs.container}>
+          <select
+            onChange={onExtensionChange}
+            value={fileExt}
+            className={boxs.select}
+          >
+            <option value="png" className={boxs.option}>
+              PNG
+            </option>
+            <option value="jpeg" className={boxs.option}>
+              JPEG
+            </option>
+            <option value="webp" className={boxs.option}>
+              WEBP
+            </option>
+          </select>
+        </div>
+        <div>
+          <button onClick={onDownloadClick}>Download</button>
+        </div>
+      </div>
+    </section>
   );
 };
 

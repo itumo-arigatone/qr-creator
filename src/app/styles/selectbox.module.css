@@ -1,0 +1,74 @@
+.container * {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.container {
+  background: -webkit-linear-gradient(
+    90deg,
+    #ec6f66 10%,
+    #f3a183 90%
+  ); /* Chrome 10+, Saf5.1+ */
+  background: -moz-linear-gradient(
+    90deg,
+    #ec6f66 10%,
+    #f3a183 90%
+  ); /* FF3.6+ */
+  background: -ms-linear-gradient(90deg, #ec6f66 10%, #f3a183 90%); /* IE10 */
+  background: -o-linear-gradient(
+    90deg,
+    #ec6f66 10%,
+    #f3a183 90%
+  ); /* Opera 11.10+ */
+  background: linear-gradient(90deg, #ec6f66 10%, #f3a183 90%); /* W3C */
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+
+  display: block;
+  position: absolute;
+  width: 320px;
+  height: 55px;
+  left: 50%;
+  top: 50%;
+  margin-left: -160px;
+  margin-top: -87px;
+}
+
+/* Select style here */
+
+.select {
+  margin: 0 auto;
+  color: #ec6f66;
+  width: 310px;
+  padding: 15px;
+  height: 25px;
+  cursor: pointer;
+  background: url(http://sharpik.com/wip/cuteselect/arrow.png) 295px 12px
+    no-repeat white;
+}
+
+.select:hover {
+  background-color: transparent;
+  color: white;
+  padding: 15px 5px 15px 25 px;
+}
+
+.option {
+  background-color: white;
+  color: gray;
+  width: 310px;
+  padding: 10px 15px;
+  height: 20px;
+  cursor: pointer;
+}
+
+option:hover {
+  padding-left: 25px;
+  width: 270px;
+  color: #ec6f66;
+}

@@ -5,4 +5,6 @@
   color: var(--base);
   text-align: center;
   bottom: 0;
+
+  box-shadow: inset 3px 3px 6px #040000, inset -3px -3px 6px 1px #322e2e;
 }
