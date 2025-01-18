@@ -23,6 +23,7 @@ const qrCode = new QRCodeStyling({
 const QRCreator = () => {
   const [url, setUrl] = useState<string>("https://www.itsumoarigatone.com/");
   const [fileExt, setFileExt] = useState<any>("png"); // 型どうすればいいのかわからない
+  const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
   const ref = useRef(null);
 
   useEffect(() => {
@@ -50,17 +51,25 @@ const QRCreator = () => {
     });
   };
 
-  const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
-
   const handleClick = (index: number, value: string) => {
     setFileExt(value);
     setActiveIndex(index); // インデックスを更新
+  };
+
+  const handleClear = () => {
+    if (url === "") return;
+    if (window.confirm("入力したテキストをクリアしますか？")) {
+      setUrl("");
+    }
   };
 
   return (
     <section className={styles.qr_creator}>
       <div className={styles.input_wrapper}>
         <input value={url} onChange={onUrlChange} className={styles.textbox} />
+        <div className={styles.clear} onClick={() => handleClear()}>
+          ×
+        </div>
       </div>
       <div className={styles.preview} ref={ref} />
 

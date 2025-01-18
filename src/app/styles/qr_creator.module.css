@@ -23,7 +23,10 @@
 }
 
 .input_wrapper {
-  text-align: center;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
 }
 
 .textbox {
@@ -53,6 +56,11 @@
   outline: none;
 }
 
+.clear {
+  cursor: pointer;
+  font-size: 60px;
+}
+
 .download_area {
   display: flex;
   flex-direction: column;
@@ -69,5 +77,15 @@
 
   .textbox:focus {
     width: 370px;
+  }
+
+  .input_wrapper {
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .clear {
+    font-size: 40px;
+    order: -1;
   }
 }
