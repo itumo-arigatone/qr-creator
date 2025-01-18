@@ -31,3 +31,16 @@
   overflow: hidden;
   padding: 16px;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+  .logo {
+    font-size: 20px;
+  }
+
+  .link {
+    padding: 8px;
+  }
+}

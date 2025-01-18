@@ -54,3 +54,13 @@
   margin-top: 20px;
   gap: 10px;
 }
+
+@media (max-width: 768px) {
+  .textbox {
+    width: 270px;
+  }
+
+  .textbox:focus {
+    width: 370px;
+  }
+}
