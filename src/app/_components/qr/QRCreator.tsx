@@ -9,20 +9,7 @@ import "@/app/styles/selectbox.css";
 
 type FileExtension = "png" | "jpeg" | "webp" | "svg";
 
-const qrCode = new QRCodeStyling({
-  width: 300,
-  height: 300,
-  image: "/itsumoarigatone.png",
-  dotsOptions: {
-    color: "#000000",
-    type: "rounded",
-  },
-  imageOptions: {
-    crossOrigin: "anonymous",
-    margin: 5,
-  },
-});
-
+let qrCode: any = null;
 const QRCreator = () => {
   const [url, setUrl] = useState<string>("https://www.itsumoarigatone.com/");
   const [fileExt, setFileExt] = useState<FileExtension>("png"); // 型どうすればいいのかわからない
@@ -30,6 +17,20 @@ const QRCreator = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    qrCode = new QRCodeStyling({
+      width: 300,
+      height: 300,
+      image: "/itsumoarigatone.png",
+      dotsOptions: {
+        color: "#000000",
+        type: "rounded",
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 5,
+      },
+    });
+
     if (!ref.current) {
       return;
     }
