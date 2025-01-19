@@ -1,3 +1,5 @@
+"use client";
+
 import "@/app/styles/download.css";
 
 const DownloadButton = ({

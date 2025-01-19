@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "@/app/styles/customize.module.css";
 import QRCodeStyling from "qr-code-styling";
 
