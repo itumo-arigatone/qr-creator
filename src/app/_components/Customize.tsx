@@ -3,8 +3,11 @@
 import styles from "@/app/styles/customize.module.css";
 import QRCodeStyling from "qr-code-styling";
 
-const Customize = ({ qrCode }: { qrCode: QRCodeStyling }) => {
+const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
   const handleClearIcon = () => {
+    if (!qrCode) {
+      return;
+    }
     qrCode.update({
       image: "",
     });
@@ -13,6 +16,9 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling }) => {
   const handleChangeBackground = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
+    if (!qrCode) {
+      return;
+    }
     qrCode.update({
       backgroundOptions: {
         color: event.target.value,
@@ -21,6 +27,9 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling }) => {
   };
 
   const handleChangeQRColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!qrCode) {
+      return;
+    }
     qrCode.update({
       dotsOptions: {
         color: event.target.value,

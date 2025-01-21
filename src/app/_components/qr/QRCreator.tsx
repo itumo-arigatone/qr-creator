@@ -207,7 +207,7 @@ const QRCreator = () => {
         <h2 className={styles.h2_title}>
           QRコードのカスタマイズ comming soon...
         </h2>
-        {qrCodeRef.current && <Customize qrCode={qrCodeRef.current} />}
+        <Customize qrCode={qrCodeRef.current} />
       </section>
     </>
   );
