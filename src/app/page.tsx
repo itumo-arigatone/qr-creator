@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
 import QRCreator from "@/app/_components/qr/QRCreator";

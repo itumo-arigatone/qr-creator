@@ -9,15 +9,19 @@ import "@/app/styles/selectbox.css";
 
 type FileExtension = "png" | "jpeg" | "webp" | "svg";
 
-let qrCode: any = null;
 const QRCreator = () => {
   const [url, setUrl] = useState<string>("https://www.itsumoarigatone.com/");
   const [fileExt, setFileExt] = useState<FileExtension>("png"); // 型どうすればいいのかわからない
   const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
   const ref = useRef(null);
+  const qrCodeRef = useRef<QRCodeStyling | null>(null);
 
   useEffect(() => {
-    qrCode = new QRCodeStyling({
+    if (!ref.current) {
+      return;
+    }
+
+    qrCodeRef.current = new QRCodeStyling({
       width: 300,
       height: 300,
       image: "/itsumoarigatone.png",
@@ -31,15 +35,14 @@ const QRCreator = () => {
       },
     });
 
-    if (!ref.current) {
-      return;
-    }
-
-    qrCode.append(ref.current);
+    qrCodeRef.current.append(ref.current);
   }, []);
 
   useEffect(() => {
-    qrCode.update({
+    if (!qrCodeRef.current) {
+      return;
+    }
+    qrCodeRef.current.update({
       data: url,
     });
   }, [url]);
@@ -50,7 +53,11 @@ const QRCreator = () => {
   };
 
   const onDownloadClick = () => {
-    qrCode.download({
+    if (!qrCodeRef.current) {
+      return;
+    }
+
+    qrCodeRef.current.download({
       extension: fileExt,
     });
   };
@@ -200,7 +207,7 @@ const QRCreator = () => {
         <h2 className={styles.h2_title}>
           QRコードのカスタマイズ comming soon...
         </h2>
-        <Customize qrCode={qrCode} />
+        {qrCodeRef.current && <Customize qrCode={qrCodeRef.current} />}
       </section>
     </>
   );
