@@ -37,6 +37,15 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
     });
   };
 
+  const handleChangeMargin = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!qrCode) {
+      return;
+    }
+    qrCode.update({
+      margin: parseInt(event.target.value),
+    });
+  };
+
   return (
     <section className={styles.customize}>
       <div className={styles.customize_inner}>
@@ -63,6 +72,16 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
             type="color"
             className={styles.color_picker}
             onChange={(event) => handleChangeQRColor(event)}
+          />
+        </div>
+      </div>
+      <div className={styles.customize_inner}>
+        <h3 className={styles.h3_title}>余白の設定</h3>
+        <div className={styles.customize_content}>
+          <input
+            type="number"
+            className={styles.button}
+            onChange={(event) => handleChangeMargin(event)}
           />
         </div>
       </div>
