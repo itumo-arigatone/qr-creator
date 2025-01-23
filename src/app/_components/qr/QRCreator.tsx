@@ -47,25 +47,6 @@ const QRCreator = () => {
     });
   }, [url]);
 
-  useEffect(() => {
-    if (qrCodeRef.current && ref.current) {
-      return;
-    }
-    qrCodeRef.current = new QRCodeStyling({
-      width: 300,
-      height: 300,
-      image: "/itsumoarigatone.png",
-      dotsOptions: {
-        color: "#000000",
-        type: "rounded",
-      },
-      imageOptions: {
-        crossOrigin: "anonymous",
-        margin: 5,
-      },
-    });
-  }, [ref]);
-
   const onUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setUrl(event.target.value);
