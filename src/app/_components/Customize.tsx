@@ -46,6 +46,23 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
     });
   };
 
+  const handleChangeQRImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!qrCode) {
+      return;
+    }
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      qrCode.update({
+        image: e.target?.result as string,
+      });
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
     <section className={styles.customize}>
       <div className={styles.customize_inner}>
@@ -54,6 +71,14 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
           <div className={styles.button} onClick={() => handleClearIcon()}>
             アイコンをクリア
           </div>
+        </div>
+        <div className={styles.customize_content}>
+          <p>中央画像を追加</p>
+          <input
+            type="file"
+            className={styles.button}
+            onChange={(event) => handleChangeQRImage(event)}
+          />
         </div>
       </div>
       <div className={styles.customize_inner}>
