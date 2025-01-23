@@ -14,14 +14,13 @@ const QRCreator = () => {
   const [fileExt, setFileExt] = useState<FileExtension>("png"); // 型どうすればいいのかわからない
   const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
   const ref = useRef(null);
-  const qrCodeRef = useRef<QRCodeStyling | null>(null);
-
+  const [qrCode, setQrCode] = useState<QRCodeStyling | null>(null);
   useEffect(() => {
     if (!ref.current) {
       return;
     }
 
-    qrCodeRef.current = new QRCodeStyling({
+    const qrCodeInstance = new QRCodeStyling({
       width: 300,
       height: 300,
       image: "/itsumoarigatone.png",
@@ -35,17 +34,17 @@ const QRCreator = () => {
       },
     });
 
-    qrCodeRef.current.append(ref.current);
+    qrCodeInstance.append(ref.current);
+    setQrCode(qrCodeInstance);
   }, []);
 
   useEffect(() => {
-    if (!qrCodeRef.current) {
-      return;
+    if (qrCode) {
+      qrCode.update({
+        data: url,
+      });
     }
-    qrCodeRef.current.update({
-      data: url,
-    });
-  }, [url]);
+  }, [url, qrCode]);
 
   const onUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -53,11 +52,11 @@ const QRCreator = () => {
   };
 
   const onDownloadClick = () => {
-    if (!qrCodeRef.current) {
+    if (!qrCode) {
       return;
     }
 
-    qrCodeRef.current.download({
+    qrCode.download({
       extension: fileExt,
     });
   };
@@ -207,7 +206,7 @@ const QRCreator = () => {
         <h2 className={styles.h2_title}>
           QRコードのカスタマイズ（随時実装中）
         </h2>
-        {qrCodeRef.current && <Customize qrCode={qrCodeRef.current} />}
+        {qrCode && <Customize qrCode={qrCode} />}
       </section>
     </>
   );
