@@ -22,7 +22,7 @@ export default function Header() {
           height={70}
         />
         <div>
-          QRコードジェネレータ
+          かわいいQRコード作成
           <div className={styles.created}>created by Itsumoarigatone</div>
         </div>
       </div>
