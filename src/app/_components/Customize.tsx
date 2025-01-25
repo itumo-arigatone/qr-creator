@@ -3,11 +3,19 @@
 import styles from "@/app/styles/customize.module.css";
 import QRCodeStyling from "qr-code-styling";
 
-const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
+type Props = {
+  qrCode: QRCodeStyling | null;
+  popup: QRCodeStyling | null;
+};
+
+const Customize = ({ qrCode, popup }: Props) => {
   const handleClearIcon = () => {
-    if (!qrCode) {
+    if (!qrCode || !popup) {
       return;
     }
+    qrCode.update({
+      image: "",
+    });
     qrCode.update({
       image: "",
     });
@@ -16,7 +24,7 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
   const handleChangeBackground = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    if (!qrCode) {
+    if (!qrCode || !popup) {
       return;
     }
     qrCode.update({
@@ -24,10 +32,15 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
         color: event.target.value,
       },
     });
+    popup.update({
+      backgroundOptions: {
+        color: event.target.value,
+      },
+    });
   };
 
   const handleChangeQRColor = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!qrCode) {
+    if (!qrCode || !popup) {
       return;
     }
     qrCode.update({
@@ -35,19 +48,27 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
         color: event.target.value,
       },
     });
+    popup.update({
+      dotsOptions: {
+        color: event.target.value,
+      },
+    });
   };
 
   const handleChangeMargin = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!qrCode) {
+    if (!qrCode || !popup) {
       return;
     }
     qrCode.update({
       margin: parseInt(event.target.value),
     });
+    popup.update({
+      margin: parseInt(event.target.value),
+    });
   };
 
   const handleChangeQRImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!qrCode) {
+    if (!qrCode || !popup) {
       return;
     }
     const file = event.target.files?.[0];
@@ -57,6 +78,9 @@ const Customize = ({ qrCode }: { qrCode: QRCodeStyling | null }) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       qrCode.update({
+        image: e.target?.result as string,
+      });
+      popup.update({
         image: e.target?.result as string,
       });
     };

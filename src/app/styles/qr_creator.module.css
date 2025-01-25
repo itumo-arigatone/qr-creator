@@ -7,6 +7,16 @@
   width: fit-content;
 }
 
+.popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.popup canvas {
+  width: 100px;
+  height: 100px;
+}
+
 .input_wrapper {
   display: flex;
   gap: 24px;

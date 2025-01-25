@@ -6,6 +6,7 @@ import Customize from "@/app/_components/Customize";
 import QRCodeStyling from "qr-code-styling";
 import styles from "@/app/styles/qr_creator.module.css";
 import "@/app/styles/selectbox.css";
+import Popup from "./Popup";
 
 type FileExtension = "png" | "jpeg" | "webp" | "svg";
 
@@ -14,11 +15,27 @@ const QRCreator = () => {
   const [fileExt, setFileExt] = useState<FileExtension>("png"); // 型どうすればいいのかわからない
   const [activeIndex, setActiveIndex] = useState<number>(0); // 選択されたラジオボタンのインデックス
   const ref = useRef(null);
+  const popupRef = useRef(null);
   const [qrCode, setQrCode] = useState<QRCodeStyling | null>(null);
+  const [popupQrCode, setPopupQrCode] = useState<QRCodeStyling | null>(null);
   useEffect(() => {
-    if (!ref.current) {
+    if (!ref.current || !popupRef.current) {
       return;
     }
+
+    const popupInstance = new QRCodeStyling({
+      width: 300,
+      height: 300,
+      image: "/itsumoarigatone.png",
+      dotsOptions: {
+        color: "#000000",
+        type: "rounded",
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 5,
+      },
+    });
 
     const qrCodeInstance = new QRCodeStyling({
       width: 300,
@@ -36,6 +53,9 @@ const QRCreator = () => {
 
     qrCodeInstance.append(ref.current);
     setQrCode(qrCodeInstance);
+
+    popupInstance.append(popupRef.current);
+    setPopupQrCode(popupInstance);
   }, []);
 
   useEffect(() => {
@@ -43,8 +63,11 @@ const QRCreator = () => {
       qrCode.update({
         data: url,
       });
+      popupQrCode?.update({
+        data: url,
+      });
     }
-  }, [url, qrCode]);
+  }, [url, qrCode, popupQrCode]);
 
   const onUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -94,7 +117,6 @@ const QRCreator = () => {
           </div>
         </div>
         <div className={styles.preview} ref={ref} />
-
         <div className={styles.download_area}>
           <div>
             <svg className="filter" version="1.1">
@@ -206,8 +228,10 @@ const QRCreator = () => {
         <h2 className={styles.h2_title}>
           QRコードのカスタマイズ（随時実装中）
         </h2>
-        {qrCode && <Customize qrCode={qrCode} />}
+        {qrCode && <Customize qrCode={qrCode} popup={popupQrCode} />}
       </section>
+
+      <Popup isHideTop={true} ref={popupRef} />
     </>
   );
 };
