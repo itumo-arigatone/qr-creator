@@ -1,25 +1,28 @@
 "use client";
 
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/app/styles/qr_creator.module.css";
+import QRCodeStyling from "qr-code-styling";
 
 type Props = {
-  isHideTop: boolean;
   ref: any;
+  popupQrCode: QRCodeStyling | null;
 };
 
-const Popup = ({ isHideTop, ref }: Props) => {
+const Popup = ({ ref, popupQrCode }: Props) => {
   const [isDismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     if (!ref.current) {
       return;
     }
-  }, [ref, isDismissed]);
+
+    popupQrCode?.update();
+  }, [isDismissed]);
 
   return (
     <div className={styles.popup}>
-      {(isHideTop && !isDismissed && (
+      {(!isDismissed && (
         <>
           <div
             className={`${styles.preview} ${styles.popup_preview}`}

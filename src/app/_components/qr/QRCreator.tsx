@@ -231,7 +231,7 @@ const QRCreator = () => {
         {qrCode && <Customize qrCode={qrCode} popup={popupQrCode} />}
       </section>
 
-      <Popup isHideTop={true} ref={popupRef} />
+      <Popup ref={popupRef} popupQrCode={popupQrCode} />
     </>
   );
 };

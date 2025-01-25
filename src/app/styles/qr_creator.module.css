@@ -11,7 +11,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 16px;
+  padding: 40px;
   background: var(--accent);
   color: var(--sub);
   border-radius: 12px;
@@ -27,6 +27,7 @@
 
 @media (max-width: 768px) {
   .popup {
+    padding: 16px;
     font-size: 10px;
   }
 
