@@ -11,6 +11,13 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+  padding: 16px;
+  background: var(--accent);
+  color: var(--sub);
+  border-radius: 12px;
+}
+.popup_preview {
+  margin: auto;
 }
 .popup canvas {
   width: 100px;
