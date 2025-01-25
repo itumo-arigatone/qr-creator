@@ -17,6 +17,9 @@ export default function Home() {
               <p>
                 色や中心の画像を設定する場合はページ下部のQRコードのカスタマイズから設定してください。
               </p>
+              <p>
+                おしゃれで、カッコよくて、かわいいQRコードを作成しましょう！
+              </p>
             </div>
           </section>
           <QRCreator />
