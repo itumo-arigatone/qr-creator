@@ -6,11 +6,18 @@ import styles from "@/app/styles/header.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
+      <Image
+        src="/itsumoarigatone.png"
+        alt="ロゴアイコン"
+        className={styles.logoImageMobile}
+        width={70}
+        height={70}
+      />
       <div className={styles.logo}>
         <Image
           src="/itsumoarigatone.png"
           alt="ロゴアイコン"
-          className={styles.logoImage}
+          className={styles.logoImagePC}
           width={70}
           height={70}
         />
