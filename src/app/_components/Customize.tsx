@@ -16,7 +16,7 @@ const Customize = ({ qrCode, popup }: Props) => {
     qrCode.update({
       image: "",
     });
-    qrCode.update({
+    popup.update({
       image: "",
     });
   };

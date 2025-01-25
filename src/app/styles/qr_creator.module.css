@@ -15,6 +15,7 @@
   background: var(--accent);
   color: var(--sub);
   border-radius: 12px;
+  font-size: 14px;
 }
 .popup_preview {
   margin: auto;
@@ -22,6 +23,12 @@
 .popup canvas {
   width: 100px;
   height: 100px;
+}
+
+@media (max-width: 768px) {
+  .popup {
+    font-size: 10px;
+  }
 }
 
 .input_wrapper {

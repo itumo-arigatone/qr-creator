@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import styles from "@/app/styles/qr_creator.module.css";
 
 type Props = {
@@ -10,6 +10,12 @@ type Props = {
 
 const Popup = ({ isHideTop, ref }: Props) => {
   const [isDismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+  }, [ref, isDismissed]);
 
   return (
     <div className={styles.popup}>

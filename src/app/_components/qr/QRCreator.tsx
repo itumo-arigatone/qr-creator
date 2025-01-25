@@ -226,7 +226,7 @@ const QRCreator = () => {
       {/* <div>広告のバナー挿入</div> */}
       <section className={styles.section}>
         <h2 className={styles.h2_title}>
-          QRコードのカスタマイズ（随時実装中）
+          QRコードのカスタマイズ（機能追加中）
         </h2>
         {qrCode && <Customize qrCode={qrCode} popup={popupQrCode} />}
       </section>
