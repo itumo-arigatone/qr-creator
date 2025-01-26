@@ -99,11 +99,12 @@
   }
 
   .textbox:focus {
-    width: 370px;
+    width: 100%;
   }
 
   .input_wrapper {
     gap: 8px;
+    padding: 0px 16px;
     flex-direction: column;
   }
 
