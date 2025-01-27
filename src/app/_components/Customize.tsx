@@ -89,6 +89,7 @@ const Customize = ({ qrCode, popup }: Props) => {
 
   return (
     <section className={styles.customize}>
+      <h2 className={styles.h2_title}>QRコードのカスタマイズ（機能追加中）</h2>
       <div className={styles.customize_inner}>
         <h3 className={styles.h3_title}>アイコン設定</h3>
         <div className={styles.customize_content}>
