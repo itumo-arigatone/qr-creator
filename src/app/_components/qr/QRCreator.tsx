@@ -33,7 +33,7 @@ const QRCreator = () => {
       },
       imageOptions: {
         crossOrigin: "anonymous",
-        margin: 5,
+        margin: 10,
       },
     });
 
@@ -47,7 +47,7 @@ const QRCreator = () => {
       },
       imageOptions: {
         crossOrigin: "anonymous",
-        margin: 5,
+        margin: 10,
       },
     });
 
