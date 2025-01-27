@@ -1,14 +1,26 @@
 "use client";
 
 import styles from "@/app/styles/customize.module.css";
-import QRCodeStyling from "qr-code-styling";
+import QRCodeStyling, { DotType } from "qr-code-styling";
+import React, { useState } from "react";
 
 type Props = {
   qrCode: QRCodeStyling | null;
   popup: QRCodeStyling | null;
 };
 
+const types: DotType[] = [
+  "rounded",
+  "dots",
+  "classy",
+  "classy-rounded",
+  "square",
+  "extra-rounded",
+];
+
 const Customize = ({ qrCode, popup }: Props) => {
+  const [selectedType, setSelectedType] = useState(types[0]);
+
   const handleClearIcon = () => {
     if (!qrCode || !popup) {
       return;
@@ -87,6 +99,25 @@ const Customize = ({ qrCode, popup }: Props) => {
     reader.readAsDataURL(file);
   };
 
+  const handleChangeDotType = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (!qrCode || !popup) {
+      return;
+    }
+    const selectedType = event.target.value as DotType;
+
+    qrCode.update({
+      dotsOptions: {
+        type: selectedType || "rounded",
+      },
+    });
+    popup.update({
+      dotsOptions: {
+        type: selectedType || "rounded",
+      },
+    });
+    setSelectedType(selectedType);
+  };
+
   return (
     <section className={styles.customize}>
       <h2 className={styles.h2_title}>QRコードのカスタマイズ（機能追加中）</h2>
@@ -104,6 +135,22 @@ const Customize = ({ qrCode, popup }: Props) => {
             className={styles.button}
             onChange={(event) => handleChangeQRImage(event)}
           />
+        </div>
+      </div>
+      <div className={styles.customize_inner}>
+        <h3 className={styles.h3_title}>ドットのカスタマイズ</h3>
+        <div className={styles.customize_content}>
+          <select
+            id="type-select"
+            value={selectedType}
+            onChange={(event) => handleChangeDotType(event)}
+          >
+            {types.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       <div className={styles.customize_inner}>
