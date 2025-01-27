@@ -91,6 +91,7 @@
 
 .h2_title {
   text-align: center;
+  margin: auto 16px;
 }
 
 @media (max-width: 768px) {
