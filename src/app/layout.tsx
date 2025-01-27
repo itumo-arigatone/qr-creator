@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
-      <GoogleAdsense pId={process.env.GOOGLE_ADSENSE_ID || ""} />
+      <GoogleAdsense pId={"9341570175762550"} />
     </html>
   );
 }
