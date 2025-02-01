@@ -20,6 +20,15 @@ export default function Home() {
               <p>
                 おしゃれで、カッコよくて、かわいいQRコードを作成しましょう！
               </p>
+              <p>
+                <a
+                  target="_blank"
+                  href="/how-to"
+                  className={styles.how_to_link}
+                >
+                  このサイトの使い方はこちら！
+                </a>
+              </p>
             </div>
           </section>
           <QRCreator />

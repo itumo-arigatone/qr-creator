@@ -33,6 +33,11 @@
   margin: auto 16px;
 }
 
+.how_to_link {
+  color: #007bff;
+  font-weight: 600;
+}
+
 .section {
   margin-top: 40px;
 }
