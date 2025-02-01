@@ -1,0 +1,41 @@
+section {
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  margin-top: 34px;
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  padding-left: 2px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+.how_to_img {
+  width: 100%;
+  max-width: 600px;
+  margin: 12px auto;
+  box-shadow: 0 0 36px var(--sub);
+}
+
+.how_to_link {
+  color: #007bff;
+  font-size: 24px;
+  font-weight: 600;
+}
