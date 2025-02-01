@@ -20,12 +20,16 @@ export default function Page() {
           <section>
             <h2>どこで作るの？</h2>
             <div className="description">
-              <p>↓のサイトで作れます。</p>
               <p>
-                <a target="_blank" href="https://qr.itsumoarigatone.com">
+                <a
+                  target="_blank"
+                  href="https://qr.itsumoarigatone.com"
+                  className="how_to_link"
+                >
                   https://qr.itsumoarigatone.com
                 </a>
               </p>
+              <p>↑のサイトで作れます。</p>
             </div>
           </section>
           <section>
@@ -56,8 +60,8 @@ export default function Page() {
                 変更したい場合は「中央画像を追加」で変更しましょう。ただし、iPhoneで撮っているような写真は使用できません。
                 具体的に言うと対応している画像はPNGとJPEG画像に対応しています。SVGはどうだったかな〜。
               </p>
-              <p>試しにXのロゴに変更しました</p>
               <img src="/images/how_to/04.png" alt="" className="how_to_img" />
+              <p>試しにXのロゴに変更しました</p>
             </div>
             <h3>QRコードの形を変更しよう</h3>
             <div className="description">
