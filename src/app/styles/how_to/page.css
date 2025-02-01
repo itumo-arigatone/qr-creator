@@ -1,0 +1,29 @@
+section {
+  width: 80vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 34px;
+}
+
+h3 {
+  margin-top: 24px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.how_to_img {
+  width: 100%;
+  max-width: 600px;
+}
