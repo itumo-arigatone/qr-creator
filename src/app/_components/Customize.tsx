@@ -19,6 +19,15 @@ const types: DotType[] = [
 ];
 
 const Customize = ({ qrCode, popup }: Props) => {
+  const dot = {
+    rounded: "丸め",
+    dots: "ドット",
+    classy: "クラシック",
+    "classy-rounded": "丸めでクラシック",
+    square: "四角",
+    "extra-rounded": "めっちゃ丸め",
+  };
+
   const [selectedType, setSelectedType] = useState(types[0]);
 
   const handleClearIcon = () => {
@@ -147,7 +156,7 @@ const Customize = ({ qrCode, popup }: Props) => {
           >
             {types.map((type) => (
               <option key={type} value={type}>
-                {type}
+                {dot[type]}
               </option>
             ))}
           </select>
