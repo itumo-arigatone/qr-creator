@@ -8,3 +8,16 @@
 
   box-shadow: inset 3px 3px 6px #040000, inset -3px -3px 6px 1px #322e2e;
 }
+@media (max-width: 768px) {
+  .footer {
+    font-size: 14px;
+  }
+}
+
+.link {
+  border-bottom: 1px solid var(--base);
+}
+
+.copyright {
+  margin-top: 16px;
+}
