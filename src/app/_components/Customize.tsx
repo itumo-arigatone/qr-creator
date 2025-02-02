@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "@/app/styles/customize.module.css";
-import QRCodeStyling, { DotType } from "qr-code-styling";
+import QRCodeStyling, { DotType, CornerDotType } from "qr-code-styling";
 import React, { useState } from "react";
 
 type Props = {
@@ -18,8 +18,19 @@ const types: DotType[] = [
   "extra-rounded",
 ];
 
+const cornerDotTypes: CornerDotType[] = [
+  "dot",
+  "square",
+  "extra-rounded",
+  "rounded",
+  "dots",
+  "classy",
+  "classy-rounded",
+];
+
 const Customize = ({ qrCode, popup }: Props) => {
   const dot = {
+    dot: "ドット",
     rounded: "丸め",
     dots: "ドット",
     classy: "クラシック",
@@ -28,7 +39,21 @@ const Customize = ({ qrCode, popup }: Props) => {
     "extra-rounded": "めっちゃ丸め",
   };
 
+  // 念の為ドットと分けておく
+  const cornerDot = {
+    dot: "丸",
+    rounded: "かど丸",
+    dots: "ボツボツ",
+    classy: "クラシック",
+    "classy-rounded": "丸めでクラシック",
+    square: "四角",
+    "extra-rounded": "めっちゃ角丸め",
+  };
+
   const [selectedType, setSelectedType] = useState(types[0]);
+  const [selectedCornerDotType, setSelectedCornerDotType] = useState(
+    cornerDotTypes[0]
+  );
 
   const handleClearIcon = () => {
     if (!qrCode || !popup) {
@@ -127,6 +152,27 @@ const Customize = ({ qrCode, popup }: Props) => {
     setSelectedType(selectedType);
   };
 
+  const handleChangeCornerDotType = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    if (!qrCode || !popup) {
+      return;
+    }
+    const selectedType = event.target.value as CornerDotType;
+
+    qrCode.update({
+      cornersDotOptions: {
+        type: selectedType || "rounded",
+      },
+    });
+    popup.update({
+      cornersDotOptions: {
+        type: selectedType || "rounded",
+      },
+    });
+    setSelectedCornerDotType(selectedType);
+  };
+
   return (
     <section className={styles.customize}>
       <h2 className={styles.h2_title}>QRコードのカスタマイズ（機能追加中）</h2>
@@ -157,6 +203,22 @@ const Customize = ({ qrCode, popup }: Props) => {
             {types.map((type) => (
               <option key={type} value={type}>
                 {dot[type]}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div className={styles.customize_inner}>
+        <h3 className={styles.h3_title}>角の四角の設定</h3>
+        <div className={styles.customize_content}>
+          <select
+            id="type-select"
+            value={selectedCornerDotType}
+            onChange={(event) => handleChangeCornerDotType(event)}
+          >
+            {cornerDotTypes.map((type) => (
+              <option key={type} value={type}>
+                {cornerDot[type]}
               </option>
             ))}
           </select>
