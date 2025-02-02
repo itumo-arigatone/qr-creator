@@ -12,6 +12,7 @@ export default function Header() {
         className={styles.logoImageMobile}
         width={70}
         height={70}
+        priority
       />
       <div className={styles.logo}>
         <Image
@@ -20,6 +21,7 @@ export default function Header() {
           className={styles.logoImagePC}
           width={70}
           height={70}
+          priority
         />
         <div>
           かわいいQRコード作成
