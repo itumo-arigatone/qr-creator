@@ -11,18 +11,18 @@ type Props = {
 
 const types: DotType[] = [
   "rounded",
+  "extra-rounded",
+  "square",
   "dots",
   "classy",
   "classy-rounded",
-  "square",
-  "extra-rounded",
 ];
 
 const cornerDotTypes: CornerDotType[] = [
+  "rounded",
+  "extra-rounded",
   "dot",
   "square",
-  "extra-rounded",
-  "rounded",
   "dots",
   "classy",
   "classy-rounded",
