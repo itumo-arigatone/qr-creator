@@ -90,6 +90,10 @@
 }
 
 @media (max-width: 768px) {
+  .qr_creator {
+    margin-top: 24px;
+  }
+
   .textbox {
     width: 270px;
   }
