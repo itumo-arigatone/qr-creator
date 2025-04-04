@@ -3,7 +3,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import DownloadButton from "@/app/_components/DownloadButton";
 import Customize from "@/app/_components/Customize";
-import QRCodeStyling from "qr-code-styling";
+import QRCodeStyling, {
+  CornerSquareType,
+  CornerDotType,
+  DotType,
+} from "qr-code-styling";
 import styles from "@/app/styles/qr_creator.module.css";
 import "@/app/styles/selectbox.css";
 import Popup from "./Popup";
@@ -18,38 +22,38 @@ const QRCreator = () => {
   const popupRef = useRef(null);
   const [qrCode, setQrCode] = useState<QRCodeStyling | null>(null);
   const [popupQrCode, setPopupQrCode] = useState<QRCodeStyling | null>(null);
+  const defaultOptions = {
+    width: 300,
+    height: 300,
+    image: "/itsumoarigatone.png",
+    dotsOptions: {
+      color: "#a35278",
+      type: "rounded" as DotType,
+    },
+    backgroundOptions: {
+      color: "#b6dcdc",
+    },
+    cornersDotOptions: {
+      type: "extra-rounded" as CornerDotType,
+    },
+    cornersSquareOptions: {
+      type: "extra-rounded" as CornerSquareType,
+    },
+    imageOptions: {
+      crossOrigin: "anonymous",
+      margin: 5,
+    },
+    margin: 6,
+  };
+
   useEffect(() => {
     if (!ref.current || !popupRef.current) {
       return;
     }
 
-    const popupInstance = new QRCodeStyling({
-      width: 300,
-      height: 300,
-      image: "/itsumoarigatone.png",
-      dotsOptions: {
-        color: "#000000",
-        type: "rounded",
-      },
-      imageOptions: {
-        crossOrigin: "anonymous",
-        margin: 5,
-      },
-    });
+    const popupInstance = new QRCodeStyling(defaultOptions);
 
-    const qrCodeInstance = new QRCodeStyling({
-      width: 300,
-      height: 300,
-      image: "/itsumoarigatone.png",
-      dotsOptions: {
-        color: "#000000",
-        type: "rounded",
-      },
-      imageOptions: {
-        crossOrigin: "anonymous",
-        margin: 5,
-      },
-    });
+    const qrCodeInstance = new QRCodeStyling(defaultOptions);
 
     qrCodeInstance.append(ref.current);
     setQrCode(qrCodeInstance);
@@ -223,7 +227,13 @@ const QRCreator = () => {
           </div>
         </div>
       </section>
-      {qrCode && <Customize qrCode={qrCode} popup={popupQrCode} />}
+      {qrCode && (
+        <Customize
+          qrCode={qrCode}
+          popup={popupQrCode}
+          defaultOptions={defaultOptions}
+        />
+      )}
 
       <Popup ref={popupRef} popupQrCode={popupQrCode} />
     </>

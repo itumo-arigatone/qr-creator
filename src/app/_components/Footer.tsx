@@ -8,7 +8,7 @@ const Footer = () => {
         href="https://www.itsumoarigatone.com/policy/"
         className={styles.link}
       >
-        プライバシーボリシー
+        プライバシーポリシー
       </Link>
       <div className={styles.copyright}>
         Copyright © 2025 Itsumoarigatone. All Rights Reserved.

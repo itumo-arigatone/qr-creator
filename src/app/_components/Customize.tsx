@@ -11,6 +11,7 @@ import React, { useState } from "react";
 type Props = {
   qrCode: QRCodeStyling | null;
   popup: QRCodeStyling | null;
+  defaultOptions: any;
 };
 
 const types: DotType[] = [
@@ -42,7 +43,7 @@ const cornerSquareTypes: CornerSquareType[] = [
   "classy-rounded",
 ];
 
-const Customize = ({ qrCode, popup }: Props) => {
+const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
   const dot = {
     dot: "ドット",
     rounded: "丸め",
@@ -74,12 +75,14 @@ const Customize = ({ qrCode, popup }: Props) => {
     "extra-rounded": "めっちゃ角丸め",
   };
 
-  const [selectedType, setSelectedType] = useState(types[0]);
+  const [selectedType, setSelectedType] = useState(
+    defaultOptions.dotsOptions.type
+  );
   const [selectedCornerDotType, setSelectedCornerDotType] = useState(
-    cornerDotTypes[0]
+    defaultOptions.cornersDotOptions.type
   );
   const [selectedCornerSquareType, setSelectedCornerSquareType] = useState(
-    cornerSquareTypes[0]
+    defaultOptions.cornersSquareOptions.type
   );
 
   const handleClearIcon = () => {
@@ -295,6 +298,7 @@ const Customize = ({ qrCode, popup }: Props) => {
           <input
             type="color"
             className={styles.color_picker}
+            defaultValue={defaultOptions.backgroundOptions.color}
             onChange={(event) => handleChangeBackground(event)}
           />
         </div>
@@ -303,6 +307,7 @@ const Customize = ({ qrCode, popup }: Props) => {
           <input
             type="color"
             className={styles.color_picker}
+            defaultValue={defaultOptions.dotsOptions.color}
             onChange={(event) => handleChangeQRColor(event)}
           />
         </div>
@@ -313,6 +318,7 @@ const Customize = ({ qrCode, popup }: Props) => {
           <input
             type="number"
             className={styles.button}
+            defaultValue={defaultOptions.margin}
             onChange={(event) => handleChangeMargin(event)}
           />
         </div>
