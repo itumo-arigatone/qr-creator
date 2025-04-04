@@ -31,7 +31,7 @@ const QRCreator = () => {
       type: "rounded" as DotType,
     },
     backgroundOptions: {
-      color: "#b6dcdc",
+      color: "#b6e6e6",
     },
     cornersDotOptions: {
       type: "extra-rounded" as CornerDotType,
