@@ -11,6 +11,7 @@ import QRCodeStyling, {
 import styles from "@/app/styles/qr_creator.module.css";
 import "@/app/styles/selectbox.css";
 import Popup from "./Popup";
+import ShareButton from "@/app/_components/ShareButton";
 
 type FileExtension = "png" | "jpeg" | "webp" | "svg";
 
@@ -226,6 +227,7 @@ const QRCreator = () => {
             <DownloadButton onDownloadClick={onDownloadClick} />
           </div>
         </div>
+        <ShareButton />
       </section>
       {qrCode && (
         <Customize
