@@ -249,12 +249,20 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
           </div>
         </div>
         <div className={styles.customize_content}>
-          <p>中央画像を追加</p>
-          <input
-            type="file"
-            className={styles.button}
-            onChange={(event) => handleChangeQRImage(event)}
-          />
+          <div
+            className={`${styles.button} ${styles.clear_icon} ${styles.file_button}`}
+            onClick={() => {
+              const input = document.createElement("input");
+              input.type = "file";
+              input.onchange = (e) =>
+                handleChangeQRImage(
+                  e as unknown as React.ChangeEvent<HTMLInputElement>
+                );
+              input.click();
+            }}
+          >
+            中央画像を追加
+          </div>
         </div>
       </div>
       <div className={styles.customize_inner}>
