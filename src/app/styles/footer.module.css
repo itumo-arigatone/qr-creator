@@ -8,6 +8,14 @@
 
   box-shadow: inset 3px 3px 6px #040000, inset -3px -3px 6px 1px #322e2e;
 }
+
+.link_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
 @media (max-width: 768px) {
   .footer {
     font-size: 14px;
