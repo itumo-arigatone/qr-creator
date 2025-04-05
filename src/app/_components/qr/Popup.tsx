@@ -28,10 +28,19 @@ const Popup = ({ ref, popupQrCode }: Props) => {
             className={`${styles.preview} ${styles.popup_preview}`}
             ref={ref}
           />
-          <div onClick={() => setDismissed(true)}>閉じる</div>
+          <div
+            className={styles.close_button}
+            onClick={() => setDismissed(true)}
+          >
+            閉じる
+          </div>
         </>
       )) ||
-        (isDismissed && <div onClick={() => setDismissed(false)}>再表示</div>)}
+        (isDismissed && (
+          <div className={styles.close} onClick={() => setDismissed(false)}>
+            再表示
+          </div>
+        ))}
     </div>
   );
 };

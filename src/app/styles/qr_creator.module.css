@@ -4,6 +4,7 @@
 
 .preview {
   margin: 30px auto;
+  padding: 40px;
   width: fit-content;
 }
 
@@ -11,7 +12,6 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 40px;
   background: var(--accent);
   color: var(--sub);
   border-radius: 12px;
@@ -25,15 +25,31 @@
   height: 200px;
 }
 
+.close {
+  padding: 24px 40px;
+}
+
+.close_button {
+  padding: 12px;
+  text-align: right;
+}
+
 @media (max-width: 768px) {
   .popup {
-    padding: 16px;
     font-size: 10px;
   }
 
   .popup canvas {
     width: 100px;
     height: 100px;
+  }
+
+  .popup_preview {
+    padding: 12px;
+  }
+
+  .close {
+    padding: 12px;
   }
 }
 
