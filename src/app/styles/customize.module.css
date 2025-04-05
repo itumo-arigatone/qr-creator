@@ -71,3 +71,36 @@
     inset 0 20px 30px #e0e0e0;
   background: var(--sub);
 }
+
+.select {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 30px; /* 矢印のためのスペース */
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 1;
+  width: 100%;
+}
+
+/* セレクトボックスのコンテナ */
+.select_container {
+  position: relative;
+  display: inline-block;
+  width: 170px;
+  margin: 0 auto;
+}
+
+/* 矢印表示 */
+.select_container::after {
+  content: "▼";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--accent);
+  font-size: 12px;
+  z-index: 0;
+}

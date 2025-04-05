@@ -268,49 +268,58 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
       <div className={styles.customize_inner}>
         <h3 className={styles.h3_title}>ドットのカスタマイズ</h3>
         <div className={styles.customize_content}>
-          <select
-            id="type-select"
-            value={selectedType}
-            onChange={(event) => handleChangeDotType(event)}
-          >
-            {types.map((type) => (
-              <option key={type} value={type}>
-                {dot[type]}
-              </option>
-            ))}
-          </select>
+          <div className={styles.select_container}>
+            <select
+              id="type-select"
+              value={selectedType}
+              className={`${styles.button} ${styles.select}`}
+              onChange={(event) => handleChangeDotType(event)}
+            >
+              {types.map((type) => (
+                <option key={type} value={type}>
+                  {dot[type]}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
       <div className={styles.customize_inner}>
         <h3 className={styles.h3_title}>角の四角のドットの設定</h3>
         <div className={styles.customize_content}>
-          <select
-            id="corner-dot-type-select"
-            value={selectedCornerDotType}
-            onChange={(event) => handleChangeCornerDotType(event)}
-          >
-            {cornerDotTypes.map((type) => (
-              <option key={type} value={type}>
-                {cornerDot[type]}
-              </option>
-            ))}
-          </select>
+          <div className={styles.select_container}>
+            <select
+              id="corner-dot-type-select"
+              value={selectedCornerDotType}
+              className={`${styles.button} ${styles.select}`}
+              onChange={(event) => handleChangeCornerDotType(event)}
+            >
+              {cornerDotTypes.map((type) => (
+                <option key={type} value={type}>
+                  {cornerDot[type]}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
       <div className={styles.customize_inner}>
         <h3 className={styles.h3_title}>角の四角の設定</h3>
         <div className={styles.customize_content}>
-          <select
-            id="square-type-select"
-            value={selectedCornerSquareType}
-            onChange={(event) => handleChangeSquareType(event)}
-          >
-            {cornerSquareTypes.map((type) => (
-              <option key={type} value={type}>
-                {cornerSquare[type]}
-              </option>
-            ))}
-          </select>
+          <div className={styles.select_container}>
+            <select
+              id="square-type-select"
+              value={selectedCornerSquareType}
+              className={`${styles.button} ${styles.select}`}
+              onChange={(event) => handleChangeSquareType(event)}
+            >
+              {cornerSquareTypes.map((type) => (
+                <option key={type} value={type}>
+                  {cornerSquare[type]}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
       <div className={styles.customize_inner}>
