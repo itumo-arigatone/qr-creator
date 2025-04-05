@@ -105,7 +105,6 @@
   .input_wrapper {
     gap: 8px;
     padding: 0px 16px;
-    flex-direction: column;
   }
 
   .clear {

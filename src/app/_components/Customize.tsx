@@ -6,6 +6,7 @@ import QRCodeStyling, {
   CornerDotType,
   CornerSquareType,
 } from "qr-code-styling";
+import RefleshIcon from "@/app/_components/RefleshIcon";
 import React, { useState } from "react";
 
 type Props = {
@@ -84,6 +85,10 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
   const [selectedCornerSquareType, setSelectedCornerSquareType] = useState(
     defaultOptions.cornersSquareOptions.type
   );
+  const [dotColor, setDotColor] = useState(defaultOptions.dotsOptions.color);
+  const [backgroundColor, setBackgroundColor] = useState(
+    defaultOptions.backgroundOptions.color
+  );
 
   const handleClearIcon = () => {
     if (!qrCode || !popup) {
@@ -113,6 +118,7 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
         color: event.target.value,
       },
     });
+    setBackgroundColor(event.target.value);
   };
 
   const handleChangeQRColor = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -129,6 +135,7 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
         color: event.target.value,
       },
     });
+    setDotColor(event.target.value);
   };
 
   const handleChangeMargin = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -226,11 +233,18 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
 
   return (
     <section className={styles.customize}>
-      <h2 className={styles.h2_title}>QRコードのカスタマイズ（機能追加中）</h2>
+      <h2 className={styles.h2_title}>
+        <span>QRコードのカスタマイズ</span>
+        <span>（機能追加中）</span>
+      </h2>
       <div className={styles.customize_inner}>
         <h3 className={styles.h3_title}>アイコン設定</h3>
         <div className={styles.customize_content}>
-          <div className={styles.button} onClick={() => handleClearIcon()}>
+          <div
+            className={`${styles.button} ${styles.clear_icon}`}
+            onClick={() => handleClearIcon()}
+          >
+            <RefleshIcon />
             アイコンをクリア
           </div>
         </div>
@@ -300,6 +314,7 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
             className={styles.color_picker}
             defaultValue={defaultOptions.backgroundOptions.color}
             onChange={(event) => handleChangeBackground(event)}
+            style={{ background: backgroundColor }}
           />
         </div>
         <div className={styles.customize_content}>
@@ -309,6 +324,7 @@ const Customize = ({ qrCode, popup, defaultOptions }: Props) => {
             className={styles.color_picker}
             defaultValue={defaultOptions.dotsOptions.color}
             onChange={(event) => handleChangeQRColor(event)}
+            style={{ background: dotColor }}
           />
         </div>
       </div>
