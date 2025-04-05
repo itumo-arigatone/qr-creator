@@ -2,12 +2,12 @@ import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
 import type { Metadata } from "next";
 import styles from "@/app/styles/page.module.css";
-import "@/app/styles/how_to/page.css";
+import howToStyles from "@/app/styles/how_to/page.module.css";
 
 export const metadata: Metadata = {
   title: "QRコードはどうやって作るの？",
   description:
-    "アプリダウンロード不要！シンプルなQRコード作成ツールです。画像の設定や色の変更など簡単にカスタマイズ可能！おしゃれでかわいいQRコードを自作しよう！！。",
+    "QRコードの作り方を解説しています。アプリダウンロード不要！シンプルなQRコード作成ツールです。画像の設定や色の変更など簡単にカスタマイズ可能！おしゃれでかわいいQRコードを自作しよう！！。",
 };
 
 export default function Page() {
@@ -17,8 +17,8 @@ export default function Page() {
       <main className={styles.main}>
         <div className="qr-code-area">
           <h1 className={styles.h1_title}>QRコードの作り方</h1>
-          <section>
-            <h2>どこで作るの？</h2>
+          <section className={howToStyles.section}>
+            <h2 className={howToStyles.h2_title}>どこで作るの？</h2>
             <div className="description">
               <p>
                 <a
@@ -32,9 +32,11 @@ export default function Page() {
               <p>↑のサイトで作れます。</p>
             </div>
           </section>
-          <section>
-            <h2>作り方</h2>
-            <h3>QRコードにしたいURLを入力しよう</h3>
+          <section className={howToStyles.section}>
+            <h2 className={howToStyles.h2_title}>作り方</h2>
+            <h3 className={howToStyles.h3_title}>
+              QRコードにしたいURLを入力しよう
+            </h3>
             <div className="description">
               <p>サイトにアクセスするとQRコードが出ますね？</p>
               <p>
@@ -42,7 +44,7 @@ export default function Page() {
               </p>
               <img src="/images/how_to/01.png" alt="" className="how_to_img" />
             </div>
-            <h3>中央のロゴを変更しよう</h3>
+            <h3 className={howToStyles.h3_title}>中央のロゴを変更しよう</h3>
             <div className="description">
               <p>
                 アリのマークのロゴがQRコードのサイトと合いませんか？そんな時はロゴを変更しましょう。
@@ -63,7 +65,7 @@ export default function Page() {
               <img src="/images/how_to/04.png" alt="" className="how_to_img" />
               <p>試しにXのロゴに変更しました</p>
             </div>
-            <h3>QRコードの形を変更しよう</h3>
+            <h3 className={howToStyles.h3_title}>QRコードの形を変更しよう</h3>
             <div className="description">
               <p>QRのスタイルを変更してオリジナリティを出しましょう</p>
               <p>
@@ -73,7 +75,7 @@ export default function Page() {
               <p>今回はドットを選択してみました</p>
               <img src="/images/how_to/05.png" alt="" className="how_to_img" />
             </div>
-            <h3>色を変更しよう</h3>
+            <h3 className={howToStyles.h3_title}>色を変更しよう</h3>
             <div className="description">
               <p>あとは色を設定しましょう。</p>
               <p>
@@ -82,7 +84,7 @@ export default function Page() {
               <img src="/images/how_to/06.png" alt="" className="how_to_img" />
               <p>自分に合った色を選んでQRコードを作成しましょう！</p>
             </div>
-            <h3>余白を設定しよう</h3>
+            <h3 className={howToStyles.h3_title}>余白を設定しよう</h3>
             <div className="description">
               <p>色が設定できたのになんか窮屈だね。</p>
               <p>
@@ -92,7 +94,7 @@ export default function Page() {
               <p>おすすめは10前後がいいかと思います</p>
               <img src="/images/how_to/07.png" alt="" className="how_to_img" />
             </div>
-            <h3>ダウンロードしよう</h3>
+            <h3 className={howToStyles.h3_title}>ダウンロードしよう</h3>
             <div className="description">
               <p>
                 QRコードが完成しましたね！あとはダウンロードして使うだけです。

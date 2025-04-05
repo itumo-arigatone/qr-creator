@@ -9,9 +9,10 @@
 
 .faq_container section {
   width: auto;
+  margin-top: 2.5em;
 }
 
-.faq_container section:first-child h2 {
+.faq_container section:first-child {
   margin-top: 0;
 }
 

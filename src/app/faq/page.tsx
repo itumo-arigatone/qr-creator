@@ -3,7 +3,6 @@ import Footer from "@/app/_components/Footer";
 import type { Metadata } from "next";
 import styles from "@/app/styles/page.module.css";
 import buttonStyles from "@/app/styles/button.module.css";
-import "@/app/styles/how_to/page.css";
 import faqStyles from "@/app/styles/faq/page.module.css";
 
 export const metadata: Metadata = {

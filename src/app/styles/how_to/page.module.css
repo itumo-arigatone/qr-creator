@@ -1,19 +1,19 @@
-section {
+.section {
   width: 90vw;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-h1 {
+.h1_title {
   font-size: 36px;
 }
 
-h2 {
+.h2_title {
   margin-top: 34px;
   font-size: 32px;
 }
 
-h3 {
+.h3_title {
   font-size: 24px;
   margin-top: 24px;
   margin-bottom: 12px;
