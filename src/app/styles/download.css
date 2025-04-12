@@ -35,6 +35,10 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 20px;
   border: 0;
   opacity: 0.7;
@@ -46,9 +50,8 @@
   position: absolute;
   background: var(--base);
   margin-left: -85px;
-  margin-top: -48.16px;
-  display: block;
-  height: 96.32px;
+  margin-top: -48px;
+  height: 68px;
   width: 170px;
   left: 50%;
   top: 50%;
