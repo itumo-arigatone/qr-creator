@@ -80,7 +80,6 @@
   padding-right: 30px; /* 矢印のためのスペース */
   cursor: pointer;
   background-color: transparent;
-  z-index: 1;
   width: 100%;
 }
 
