@@ -12,15 +12,15 @@
     "@types/node": "20.17.11",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
-    "next": "^15.4.10",
-    "qr-code-styling": "^1.9.1",
+    "next": "^15.5.9",
+    "qr-code-styling": "^1.9.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "typescript": "5.7.2"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "eslint": "^9",
+    "@eslint/eslintrc": "^3.3.3",
+    "eslint": "^9.39.2",
     "eslint-config-next": "15.1.3"
   }
 }
